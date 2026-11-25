@@ -10,6 +10,11 @@ CREATE TABLE IF NOT EXISTS module_attendance (
  pupil text REFERENCES pupil_cards(code), lesson text REFERENCES tool_lessons(code), seen date NOT NULL,
  checked boolean NOT NULL, PRIMARY KEY(pupil,lesson,seen)
 );
+CREATE TABLE IF NOT EXISTS card_merges (
+ alias text PRIMARY KEY REFERENCES pupil_cards(code),
+ primary_code text NOT NULL REFERENCES pupil_cards(code) CHECK(alias<>primary_code),
+ merged_by text NOT NULL, merged_at timestamptz NOT NULL DEFAULT now()
+);
 CREATE TABLE IF NOT EXISTS joint_groups (
  group_key text PRIMARY KEY, members text[] NOT NULL, min_support numeric(5,4) CHECK(min_support BETWEEN 0 AND 1),
  evidence jsonb NOT NULL, calculated_at timestamptz NOT NULL DEFAULT now()

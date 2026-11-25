@@ -1,5 +1,6 @@
 from fastapi import HTTPException
 from pydantic import BaseModel,Field
+from card_merges import hold_job
 from kit_tallies import needs,reconcile
 
 class Plan(BaseModel):
@@ -13,6 +14,8 @@ def route_board(cx):
     ''').fetchall()
 
 def sign(cx,key,data,who):
+    if hold_job(cx):
+        raise HTTPException(409,"共训组合正在按原门槛重算，算完前暂停签发新教案")
     stop=cx.execute("SELECT * FROM road_stops WHERE code=%s FOR UPDATE",(key,)).fetchone()
     group=cx.execute("SELECT * FROM joint_groups WHERE group_key=%s FOR SHARE",(data.group,)).fetchone()
     if not stop or not group:
