@@ -1,0 +1,4 @@
+.attendance-wall{display:grid;grid-template-columns:2fr 1fr;gap:1.2rem;align-items:start}
+.pupil-line{display:flex;flex-wrap:wrap;list-style:none;padding:0;gap:.65rem}
+.pupil-line li{padding:.25rem .55rem;border:1px solid var(--s-line)}
+@media(max-width:750px){.attendance-wall{grid-template-columns:1fr}}

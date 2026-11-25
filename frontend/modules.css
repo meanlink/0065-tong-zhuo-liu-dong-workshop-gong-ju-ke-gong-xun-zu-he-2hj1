@@ -1,0 +1,5 @@
+.tool-tabs{max-width:69rem;border-top:4px solid var(--s-accent)}
+.tool-card{display:grid;grid-template-columns:1fr 1.2fr;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px dashed var(--s-line)}
+.tool-card dl{display:flex;justify-content:space-around;gap:1em;margin:0}
+.tool-card dt{font-size:.78rem}.tool-card dd{margin:0;font:700 1.65rem var(--s-display)}
+@media(max-width:650px){.tool-card{grid-template-columns:1fr}.tool-card dl{justify-content:flex-start;gap:1em}}

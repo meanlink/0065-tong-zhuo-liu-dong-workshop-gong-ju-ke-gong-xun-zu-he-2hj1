@@ -1,0 +1,5 @@
+.itinerary{padding:0;margin:0;list-style:none}
+.itinerary li{display:grid;grid-template-columns:9rem 1fr;gap:1.25rem;padding:1rem 0;border-bottom:2px dashed var(--s-line)}
+.itinerary li time{font-size:1.25rem;color:var(--s-accent);font-variant-numeric:tabular-nums}
+.itinerary .compact-form{grid-template-columns:1.1fr 1fr auto;align-items:end}.itinerary .compact-form p{grid-column:1/-1;margin:0}
+@media(max-width:950px){.itinerary .compact-form{grid-template-columns:1fr}.itinerary li{grid-template-columns:1fr;gap:.25rem}}
